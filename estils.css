@@ -1,5 +1,6 @@
 body {
     box-sizing: border-box;
+    counter-reset: article;
 }
 
 
@@ -23,6 +24,12 @@ nav::after {
     height: 30vw;
 }
 
+/* Numerem els articles amb un contador*/
+h1::before {
+    counter-increment: article;
+    content: counter(article) "- ";
+}
+
 /* 
 Mobile first.
 Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
@@ -43,10 +50,15 @@ Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
     }
 
     article {
-        background-color: coral;
+        /* Quan hem numerat els articles hem vist que al jugar amb 
+        el display per l'etiqueta article, els haviem "desenganxat" tots
+        i per tant, només vèiem l'últim tota la resta d'articles estaven a sota
+        La solució és més senzilla... posem el menú a l'esquerra amb 
+        position: fixed, i després als articles els hi posem un marge a l'esquerra
+        del 20% */
         width: 80%;
         right: 0;
-        position: absolute;
+        margin-left: 21%;
     }
 
     /*En la versió desktop volem la imatge sencera*/
