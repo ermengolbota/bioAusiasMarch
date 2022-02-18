@@ -7,12 +7,29 @@ body {
 */
 
 
+/* Imatge Ausiàs a sota del menú
+    Per no modificar l'html insertem la imatge en el
+    pseudoelement after
+    */
+nav::after {
+    content: " ";
+    /* Per veure la imatge de l'after hem de modificar el display per aconseguir "espai vertical"
+        */
+    display: block;
+    background: transparent center no-repeat url(./img/cara.png);
+    width: 100%;
+    background-size: contain;
+    /*La mida vertical la provem a ull, en funció de la mida de la finestra*/
+    height: 30vw;
+}
+
 /* 
 Mobile first.
 Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
 */
 
 @media (min-width: 600px) {
+
     /*
     jugant amb position podem deixar el menú fix a l'esquerra ocupant
     un 20%, i tots els articles, enganxats a la dreta, ocpant un 80% 
@@ -24,10 +41,19 @@ Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
         position: fixed;
         width: 20%;
     }
+
     article {
         background-color: coral;
         width: 80%;
         right: 0;
         position: absolute;
+    }
+
+    /*En la versió desktop volem la imatge sencera*/
+    nav::after {
+        background: transparent center no-repeat url(./img/ausiasGran.jpg);
+        background-size: contain;
+        /*La mida vertical la provem a ull, en funció de la mida de la finestra*/
+        height: 30vw;
     }
 }
