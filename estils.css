@@ -1,3 +1,33 @@
 body {
     box-sizing: border-box;
 }
+
+
+/* Configuracions generals, compartides per totes les resolucions
+*/
+
+
+/* 
+Mobile first.
+Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
+*/
+
+@media (min-width: 600px) {
+    /*
+    jugant amb position podem deixar el menú fix a l'esquerra ocupant
+    un 20%, i tots els articles, enganxats a la dreta, ocpant un 80% 
+    */
+    nav {
+        background-color: rgb(212, 212, 243);
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 20%;
+    }
+    article {
+        background-color: coral;
+        width: 80%;
+        right: 0;
+        position: absolute;
+    }
+}
