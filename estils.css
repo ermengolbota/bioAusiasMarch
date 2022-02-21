@@ -69,3 +69,31 @@ Tot el que no sigui per dispositiu petit ha d'anar dins de la media query
         height: 30vw;
     }
 }
+
+/* Efecte de vibració */
+@keyframes vibracio {
+    from {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}
+
+/* Classe que es posa i es treu per fer la vibracio */
+.marcat {
+    animation-name: vibracio;
+    animation-duration: .2s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}

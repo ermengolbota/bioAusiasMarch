@@ -243,6 +243,41 @@
                 Quan feren l'inventari de béns, trobaren prop del capçal del llit el manuscrit dels seus poemes, que va
                 tenir a l'abast de la mà fins a l'últim moment.
             </p>
+            <script>
+
+                /* L'animcació consisteix en afegir i treure la classe "marcat"
+                Prmer l'assignem i després fem un timeout de 500ms per treure-la
+                */
+                function treureAnimacio(e) {
+                    e.classList.remove("marcat");
+                }
+
+                function canvi(e) {
+                    /* L'element clicat és "a", però a "a" no se li poden aplicar
+                    transformacions ja que no està posicionat pel CSS, per tant
+                    agafem el pare, li, per a fer la transformació */
+                    
+                    e.target.parentNode.classList.add("marcat");
+                    setTimeout(function () {
+                        treureAnimacio(e.target.parentNode);
+                    }, 500);
+
+                }
+
+                /**
+                Funció que afegeix un listener al clik dels enllaços
+                per afegir o treure una classe als enllaços*/
+                function inicialitzar() {
+
+                    /* A tots els enllaços els hi posem un listener de click per a canvi */
+                    for (const child of document.getElementsByTagName("li")) {
+                        child.addEventListener("click", canvi);
+                    }
+
+
+                }
+                window.onload = inicialitzar();
+            </script>
         </article>
     </div>
 </body>
